@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: The settings for s3strm
+
+Parameters:
+  SettingsBucketName:
+    Type: String
+    Description: The pre-built bucket where s3strm can store files
+
+Resources:
+    GeneralBucket:
+      Type: "AWS::S3::Bucket"
+      Properties:
+        AccessControl: Private
+        BucketName: !Ref SettingsBucketName
+
+Outputs:
+  SettingsBucket:
+    Description: A bucket to store s3strm files
+    Value:
+      !Ref SettingsBucketName
+    Export:
+      Name: s3strm-settings-bucket

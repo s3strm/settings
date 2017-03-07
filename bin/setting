@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+BASE_DIR="$(dirname $0)/../"
+cat ${BASE_DIR}/settings.txt  \
+  | grep ^"$1"                \
+  | awk -F= '{ print $2 }'
