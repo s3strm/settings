@@ -1,2 +1,5 @@
-SETTINGS_BUCKET_NAME=my_settings_bucket
+API_GATEWAY_URL=my_api_gateway_url
+MOVIES_BUCKET=my_movies_bucket
 OMDB_API_KEY=my_api_key
+POSTER_HEIGHT=900
+SETTINGS_BUCKET=my_settings_bucket
