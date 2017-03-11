@@ -7,12 +7,20 @@ Parameters:
     Type: String
     Description: The pre-built bucket where s3strm can store files
 
+  #MoviesBucketName:
+  #  Type: String
+  #  Description: The name of the bucket where your movies will be kept
+
+  OMDbAPIKey:
+    Type: String
+    Description: The name of the bucket where your movies will be kept
+
 Resources:
-    GeneralBucket:
-      Type: "AWS::S3::Bucket"
-      Properties:
-        AccessControl: Private
-        BucketName: !Ref SettingsBucketName
+  GeneralBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      AccessControl: Private
+      BucketName: !Ref SettingsBucketName
 
 Outputs:
   SettingsBucket:
@@ -21,3 +29,10 @@ Outputs:
       !Ref SettingsBucketName
     Export:
       Name: s3strm-settings-bucket
+
+  OMDbAPIKey:
+    Description: A bucket to store s3strm files
+    Value:
+      !Ref OMDbAPIKey
+    Export:
+      Name: s3strm-settings-omdb-api-key
