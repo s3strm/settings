@@ -15,6 +15,10 @@ Parameters:
     Type: String
     Description: The name of the bucket where your movies will be kept
 
+  PosterHeight:
+    Type: String
+    Description: The name of the bucket where your movies will be kept
+
 Resources:
   GeneralBucket:
     Type: "AWS::S3::Bucket"
@@ -36,3 +40,10 @@ Outputs:
       !Ref OMDbAPIKey
     Export:
       Name: s3strm-settings-omdb-api-key
+
+  PosterHeight:
+    Description: The hight to make the OMDbPosters
+    Value:
+      !Ref PosterHeight
+    Export:
+      Name: s3strm-settings-poster-height
