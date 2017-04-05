@@ -1,23 +1,22 @@
 AWSTemplateFormatVersion: "2010-09-09"
-
 Description: The settings for s3strm
 
 Parameters:
   SettingsBucket:
     Type: String
-    Description: The pre-built bucket where s3strm can store files
+    Description: The name of the settings bucket to be created
 
   MoviesBucket:
     Type: String
-    Description: The name of the bucket where your movies will be kept
+    Description: The bucket where your movies are kept
 
   OMDbAPIKey:
     Type: String
-    Description: The name of the bucket where your movies will be kept
+    Description: Your peronsal OMDb API key
 
   APIGatewayURL:
     Type: String
-    Description: The endpoint for the API Gateway
+    Description: The endpoint of the API Gateway
 
 Resources:
   GeneralBucket:
@@ -28,7 +27,7 @@ Resources:
 
 Outputs:
   SettingsBucket:
-    Description: A bucket to store s3strm files
+    Description: A bucket where s3strm can store settings
     Value:
       !Ref SettingsBucket
     Export:
@@ -42,14 +41,14 @@ Outputs:
       Name: s3strm-movies-bucket
 
   OMDbAPIKey:
-    Description: A bucket to store s3strm files
+    Description: Your personal OMDb API key
     Value:
       !Ref OMDbAPIKey
     Export:
       Name: s3strm-omdb-api-key
 
   APIGatewayURL:
-    Description: A bucket to store s3strm files
+    Description: The public URL of the s3strm API
     Value:
       !Ref APIGatewayURL
     Export:
