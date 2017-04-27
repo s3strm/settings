@@ -14,9 +14,19 @@ Parameters:
     Type: String
     Description: Your peronsal OMDb API key
 
-  APIGatewayURL:
+  APIGatewayDomain:
     Type: String
-    Description: The endpoint of the API Gateway
+    Description: Production API Gateway stage
+
+  APIGatewayDomainHostedZoneId:
+    Type: String
+    Default: prod
+    Description: Route53 Hosted Zone ID for the Production API Gateway domain
+
+  APIGatewayStage:
+    Type: String
+    Default: prod
+    Description: Production API Gateway stage
 
 Resources:
   GeneralBucket:
@@ -50,6 +60,20 @@ Outputs:
   APIGatewayURL:
     Description: The public URL of the s3strm API
     Value:
-      !Ref APIGatewayURL
+      !Join [ "", [ "https://",  Ref: APIGatewayDomain, "/", Ref: APIGatewayStage ] ]
     Export:
       Name: s3strm-api-gateway-url
+
+  APIGatewayDomain:
+    Description: The domain name to apply to the API Gateway
+    Value:
+      !Ref APIGatewayDomain
+    Export:
+      Name: s3strm-api-gateway-domain
+
+  APIGatewayDomainHostedZoneId:
+    Description: The domain name to apply to the API Gateway
+    Value:
+      !Ref APIGatewayDomainHostedZoneId
+    Export:
+      Name: s3strm-api-gateway-domain-hosted-zone-id
