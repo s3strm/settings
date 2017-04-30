@@ -64,7 +64,7 @@ Outputs:
   APIGatewayURL:
     Description: The public URL of the s3strm API
     Value:
-      !Join [ "", [ "https://",  Ref: APIGatewayDomain, "/", Ref: APIGatewayStage ] ]
+      !Join [ "", [ "https://",  Ref: APIGatewayDomain, "/" ] ]
     Export:
       Name: s3strm-api-gateway-url
 
