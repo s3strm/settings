@@ -14,6 +14,10 @@ Parameters:
     Type: String
     Description: Your peronsal OMDb API key
 
+  APIKey:
+    Type: String
+    Description: Global API Key
+
   APIGatewayDomain:
     Type: String
     Description: Production API Gateway stage
@@ -77,3 +81,10 @@ Outputs:
       !Ref APIGatewayDomainHostedZoneId
     Export:
       Name: s3strm-api-gateway-domain-hosted-zone-id
+
+  APIKey:
+    Description: The global API Key
+    Value:
+      !Ref APIKey
+    Export:
+      Name: s3strm-api-key
