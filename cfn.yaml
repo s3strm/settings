@@ -61,13 +61,6 @@ Outputs:
     Export:
       Name: s3strm-omdb-api-key
 
-  APIGatewayURL:
-    Description: The public URL of the s3strm API
-    Value:
-      !Join [ "", [ "https://",  Ref: APIGatewayDomain, "/" ] ]
-    Export:
-      Name: s3strm-api-gateway-url
-
   APIGatewayDomain:
     Description: The domain name to apply to the API Gateway
     Value:
