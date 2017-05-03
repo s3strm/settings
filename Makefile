@@ -6,6 +6,7 @@ OMDB_API_KEY = $(shell ./bin/setting OMDB_API_KEY)
 API_KEY = $(shell ./bin/setting API_KEY)
 API_GATEWAY_DOMAIN = $(shell ./bin/setting API_GATEWAY_DOMAIN)
 API_GATEWAY_DOMAIN_HOSTED_ZONE_ID = $(shell ./bin/setting API_GATEWAY_DOMAIN_HOSTED_ZONE_ID)
+API_GATEWAY_SALT = $(shell ./bin/setting API_GATEWAY_SALT)
 
 deploy:
 	$(eval ACTION ?= $(shell ./bin/cloudformation_action $(STACK_NAME)))
@@ -18,6 +19,7 @@ deploy:
 	    ParameterKey=APIKey,ParameterValue=${API_KEY}                         \
 	    ParameterKey=APIGatewayDomain,ParameterValue=${API_GATEWAY_DOMAIN}    \
 	    ParameterKey=APIGatewayDomainHostedZoneId,ParameterValue=${API_GATEWAY_DOMAIN_HOSTED_ZONE_ID}    \
+	    ParameterKey=APIGatewaySalt,ParameterValue=${API_GATEWAY_SALT}        \
 	    ParameterKey=MoviesBucket,ParameterValue=${MOVIES_BUCKET}             \
 	  --capabilities CAPABILITY_IAM                                           \
 	  2>&1

@@ -32,6 +32,11 @@ Parameters:
     Default: prod
     Description: Production API Gateway stage
 
+  APIGatewaySalt:
+    Type: String
+    Default: prod
+    Description: A Salt to apply to the production stage
+
 Resources:
   GeneralBucket:
     Type: "AWS::S3::Bucket"
@@ -74,6 +79,13 @@ Outputs:
       !Ref APIGatewayDomainHostedZoneId
     Export:
       Name: s3strm-api-gateway-domain-hosted-zone-id
+
+  APIGatewaySalt:
+    Description: The salt for the API Gateway stage name
+    Value:
+      !Ref APIGatewaySalt
+    Export:
+      Name: s3strm-api-gateway-salt
 
   APIKey:
     Description: The global API Key
