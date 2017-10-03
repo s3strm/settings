@@ -10,6 +10,10 @@ Parameters:
     Type: String
     Description: The bucket where your movies are kept
 
+  TVBucket:
+    Type: String
+    Description: The bucket where your tv shows are kept
+
   OMDbAPIKey:
     Type: String
     Description: Your peronsal OMDb API key
@@ -58,6 +62,13 @@ Outputs:
       !Ref MoviesBucket
     Export:
       Name: s3strm-movies-bucket
+
+  TVBucket:
+    Description: A bucket where tv shows can be found
+    Value:
+      !Ref TVBucket
+    Export:
+      Name: s3strm-tv-bucket
 
   OMDbAPIKey:
     Description: Your personal OMDb API key
